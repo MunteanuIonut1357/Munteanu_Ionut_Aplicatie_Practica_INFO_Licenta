@@ -1,0 +1,20 @@
+[MASTER]
+ignore=venv
+jobs=1
+load-plugins=
+
+[MESSAGES CONTROL]
+disable=
+    deprecated-module,
+    too-few-public-methods,
+    line-too-long
+
+[FORMAT]
+max-line-length=120
+
+[TYPECHECK]
+ignore-mixin-members=yes
+
+[REPORTS]
+output-format=colorized
+reports=no
