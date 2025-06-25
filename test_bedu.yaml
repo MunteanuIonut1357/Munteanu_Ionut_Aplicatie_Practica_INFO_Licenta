@@ -1,0 +1,696 @@
+testbed:
+  name: "Python"
+devices:
+  R1:
+    type: router
+    os: ios
+    platform: c3725
+    custom:
+      hostname: R1
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5000
+      ssh:
+        protocol: ssh
+        ip: 172.168.10.1
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+
+  R2:
+    type: router
+    os: ios
+    platform: c3725
+    custom:
+      hostname: R2
+      dhcp:
+        - network: 172.168.10.0
+          mask: 255.255.255.0
+          default_router: 172.168.10.1
+          dns_server: 8.8.8.8
+          excluded: [ 172.168.10.1, 172.168.10.10 ]
+        - network: 172.168.20.0
+          mask: 255.255.255.0
+          default_router: 172.168.20.1
+          dns_server: 8.8.8.8
+          excluded: [ 172.168.20.1, 172.168.20.10 ]
+        - network: 192.168.30.0
+          mask: 255.255.255.0
+          default_router: 192.168.30.1
+          dns_server: 8.8.8.8
+          excluded: [ 192.168.30.1, 192.168.30.10 ]
+        - network: 192.168.40.0
+          mask: 255.255.255.0
+          default_router: 192.168.40.1
+          dns_server: 8.8.8.8
+          excluded: [ 192.168.40.1, 192.168.40.10 ]
+
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5011
+      ssh:
+        protocol: ssh
+        ip: 20.20.20.2
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  R3:
+    type: router
+    os: ios
+    platform: c3725
+    custom:
+      hostname: R3
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5012
+      ssh:
+        protocol: ssh
+        ip: 20.20.20.1
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  R4:
+    type: router
+    os: ios
+    platform: c3725
+    custom:
+      hostname: R4
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5015
+      ssh:
+        protocol: ssh
+        ip: 30.30.30.2
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  R5:
+    type: router
+    os: ios
+    platform: c3725
+    custom:
+      hostname: R5
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5016
+      ssh:
+        protocol: ssh
+        ip: 30.30.30.3
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  SW-1:
+    type: switch
+    os: ios
+    platform: iosvl2
+    custom:
+      hostname: SW-1
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5028
+      ssh:
+        protocol: ssh
+        ip: 172.168.10.2
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  SW-2:
+    type: switch
+    os: ios
+    platform: iosvl2
+    custom:
+      hostname: SW-2
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5032
+      ssh:
+        protocol: ssh
+        ip: 172.168.0.3
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  SW-3:
+    type: switch
+    os: ios
+    platform: iosvl2
+    custom:
+      hostname: SW-3
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5036
+      ssh:
+        protocol: ssh
+        ip: 172.168.0.4
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  SW-4:
+    type: switch
+    os: ios
+    platform: iosvl2
+    custom:
+      hostname: SW-4
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5013
+      ssh:
+        protocol: ssh
+        ip: 30.30.30.4
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  SW-5:
+    type: switch
+    os: ios
+    platform: iosvl2
+    custom:
+      hostname: SW-5
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5017
+      ssh:
+        protocol: ssh
+        ip: 40.40.40.3
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  SW-6:
+    type: switch
+    os: ios
+    platform: iosvl2
+    custom:
+      hostname: SW-6
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5019
+      ssh:
+        protocol: ssh
+        ip: 40.40.40.4
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  SW-7:
+    type: switch
+    os: ios
+    platform: iosvl2
+    custom:
+      hostname: SW-7
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5021
+      ssh:
+        protocol: ssh
+        ip: 40.40.40.5
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  SW-8:
+    type: switch
+    os: ios
+    platform: iosvl2
+    custom:
+      hostname: SW-8
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5031
+      ssh:
+        protocol: ssh
+        ip: 192.168.10.2
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  SW-9:
+    type: switch
+    os: ios
+    platform: iosvl2
+    custom:
+      hostname: SW-9
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5033
+      ssh:
+        protocol: ssh
+        ip: 192.168.10.3
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  SW-10:
+    type: switch
+    os: ios
+    platform: iosvl2
+    custom:
+      hostname: SW-10
+    credentials:
+      enable:
+        password: Licenta2341
+    connections:
+      telnet:
+        class: telnet_connector.TelnetConnector
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5035
+      ssh:
+        protocol: ssh
+        ip: 192.168.10.4
+        port: 22
+        credentials:
+          login:
+            username: admin
+            password: cisco
+
+  PC1:
+    type: PC
+    os: ubuntu
+    platform: vpcs
+    connections:
+      telnet:
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5022
+  PC2:
+    type: PC
+    os: ubuntu
+    platform: vpcs
+    connections:
+      telnet:
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5038
+  PC3:
+    type: PC
+    os: ubuntu
+    platform: vpcs
+    connections:
+      telnet:
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5037
+  PC4:
+    type: PC
+    os: ubuntu
+    platform: vpcs
+    connections:
+      telnet:
+        protocol: telnet
+        ip: 127.0.0.1
+        port: 5039
+
+
+topology:
+  R1:
+    interfaces:
+      FastEthernet0/0:
+        type: ethernet
+        alias: initial
+        link: link_Room1
+        ipv4: 172.168.0.1
+      FastEthernet0/0.10:
+        type: subinterface
+        vlan: 10
+        ipv4: 172.168.10.1/24
+        helper: 10.10.10.2
+      FastEthernet0/0.20:
+        type: subinterface
+        vlan: 20
+        ipv4: 172.168.20.1/24
+        helper: 10.10.10.2
+
+      FastEthernet0/1:
+        type: ethernet
+        alias: to_R2
+        link: link_RLEFT
+        ipv4: 10.10.10.1
+
+
+  R2:
+    interfaces:
+      FastEthernet0/0:
+        type: ethernet
+        alias: initial
+        link: link-R3
+        ipv4: 20.20.20.2
+      FastEthernet0/1:
+        type: ethernet
+        alias: to_R1
+        link: link_RLEFT
+        ipv4: 10.10.10.2
+      FastEthernet1/0:
+        type: ethernet
+        alias: to_SW4
+        link: link_SW4
+        ipv4: 30.30.30.1
+
+  R3:
+    interfaces:
+      FastEthernet0/0:
+        type: ethernet
+        alias: initial
+        link: link_RRIGHT
+        ipv4: 20.20.20.1
+      FastEthernet0/1:
+        type: ethernet
+        alias: to_Room2
+        link: link_Room2
+        ipv4: 192.168.10.1
+      FastEthernet0/1.30:
+        type: subinterface
+        vlan: 30
+        ipv4: 192.168.30.1/24
+        helper: 20.20.20.2
+      FastEthernet0/1.40:
+        type: subinterface
+        vlan: 40
+        ipv4: 192.168.40.1/24
+        helper: 20.20.20.2
+
+  R4:
+    interfaces:
+      FastEthernet0/0:
+        type: ethernet
+        alias: initial
+        link: link_Center1
+        ipv4: 30.30.30.2
+        hsrp:
+          group: 1
+          virtual_ip: 30.30.30.254
+          priority: 110
+      FastEthernet0/1:
+        type: ethernet
+        alias: to_DataCenter1
+        link: link_DataCenter1
+        ipv4: 40.40.40.1
+        hsrp:
+          group: 2
+          virtual_ip: 40.40.40.254
+          priority: 110
+
+
+  R5:
+    interfaces:
+      FastEthernet0/0:
+        type: ethernet
+        alias: initial
+        link: link_Center2
+        ipv4: 30.30.30.3
+        hsrp:
+          group: 1
+          virtual_ip: 30.30.30.254
+          priority: 90
+      FastEthernet0/1:
+        type: ethernet
+        alias: to_DataCenter1
+        link: link_DataCenter2
+        ipv4: 40.40.40.2
+        hsrp:
+          group: 2
+          virtual_ip: 40.40.40.254
+          priority: 90
+
+
+
+  SW-1:
+    interfaces:
+
+      Vlan1:
+        type: svi
+        ipv4: 172.168.0.2/24
+
+      GigabitEthernet0/0:
+        type: ethernet
+        mode: access
+        access: 10
+
+      GigabitEthernet0/1:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 10, 20 ]
+
+      GigabitEthernet0/2:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 10, 20 ]
+
+  SW-2:
+    interfaces:
+
+      Vlan1:
+        type: svi
+        ipv4: 172.168.0.3/24
+
+      GigabitEthernet0/0:
+        type: ethernet
+        mode: access
+        access: 20
+
+      GigabitEthernet0/1:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 10, 20 ]
+
+      GigabitEthernet0/2:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 10, 20 ]
+
+  SW-3:
+    interfaces:
+
+      Vlan1:
+        type: svi
+        ipv4: 172.168.0.4/24
+
+      GigabitEthernet0/0:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 10, 20 ]
+
+      GigabitEthernet0/1:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 10, 20 ]
+
+      GigabitEthernet0/2:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 10, 20 ]
+
+  SW-4:
+
+    interfaces:
+      Vlan1:
+        type: svi
+        ipv4: 30.30.30.4/24
+
+  SW-5:
+
+    interfaces:
+      Vlan1:
+        type: svi
+        ipv4: 40.40.40.3/24
+
+  SW-6:
+
+    interfaces:
+      Vlan1:
+        type: svi
+        ipv4: 40.40.40.4/24
+
+  SW-7:
+
+    interfaces:
+      Vlan1:
+        type: svi
+        ipv4: 40.40.40.5/24
+
+  SW-8:
+    interfaces:
+
+      Vlan1:
+        type: svi
+        ipv4: 192.168.10.2/24
+
+      GigabitEthernet0/0:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 30, 40 ]
+
+      GigabitEthernet0/1:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 30, 40 ]
+
+      GigabitEthernet0/2:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 30, 40 ]
+
+  SW-9:
+    interfaces:
+
+      Vlan1:
+        type: svi
+        ipv4: 192.168.10.3/24
+
+      GigabitEthernet0/0:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 30, 40 ]
+
+      GigabitEthernet0/1:
+        type: ethernet
+        mode: access
+        access: 40
+
+      GigabitEthernet0/2:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 30, 40 ]
+
+  SW-10:
+    interfaces:
+
+      Vlan1:
+        type: svi
+        ipv4: 192.168.10.4/24
+
+      GigabitEthernet0/0:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 30, 40 ]
+
+      GigabitEthernet0/1:
+        type: ethernet
+        mode: access
+        access: 30
+
+      GigabitEthernet0/2:
+        type: ethernet
+        mode: trunk
+        allowed_vlans: [ 30, 40 ]
+
